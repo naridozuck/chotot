@@ -1,5 +1,7 @@
 package Steps;
 
+import Pages.login;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.*;
 import org.junit.*;
 import org.openqa.selenium.*;
@@ -7,13 +9,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class MyStepdefs {
     WebDriver driver;
-    @Given("^User log in to system$")
-    public void userLogInToSystem() throws InterruptedException {
-        driver.findElement(By.xpath("login_btn_")).click();
-        driver.findElement(By.xpath("user_name")).sendKeys("u_username");
-        driver.findElement(By.xpath("pwd")).sendKeys("p_password");
-        driver.findElement(By.xpath("login_btn_2")).click();
-        Thread.sleep(2000);
+
+    @Given("^User login with username \"([^\"]*)\" and password \"([^\"]*)\"$")
+    public void userLoginWithUsernameAndPassword(String username, String password) {
+        login.loginToURL(username, password);
     }
 
     @Then("^User login successfully and name display$")
@@ -26,4 +25,5 @@ public class MyStepdefs {
         String cuid = spancuid.getText();
         Assert.assertEquals(cuid, "6603642");
     }
+
 }
