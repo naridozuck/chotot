@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="serenity-bdd">
+    <CLASSES>
+      <root url="file://$MAVEN_REPOSITORY$/net/serenity-bdd" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$MAVEN_REPOSITORY$/net/serenity-bdd" recursive="false" />
+  </library>
+</component>

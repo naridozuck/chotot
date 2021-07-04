@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="serenity-cucumber-1.9.45">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/net/serenity-bdd/serenity-cucumber/1.9.45/serenity-cucumber-1.9.45.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

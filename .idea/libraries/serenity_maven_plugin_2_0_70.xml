@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="serenity-maven-plugin-2.0.70">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/net/serenity-bdd/maven/plugins/serenity-maven-plugin/2.0.70/serenity-maven-plugin-2.0.70.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
