@@ -1,9 +1,7 @@
 package Pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.junit.Assert;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import static sun.management.Agent.error;
@@ -13,7 +11,7 @@ public class login {
     protected WebElement currentElement;
 
     public static void loginToURL(String username, String password) throws Exception {
-        openBrowser("VDVDV");
+        openBrowser("${chotot.url}");
         login(username, password);
     }
 
@@ -23,6 +21,24 @@ public class login {
         driver.get(url);
         Thread.sleep(2000);
     }
+
+    public void verifyUserLoginSuccessful() {
+        verifyElementExist("user login successful","account" );
+    }
+
+    public void verifyElementExist(String mes, String xpath) throws Exception {
+        Assert.assertTrue(mes + " is not exist.\n Xpath: " + xpath, isElementExist(xpath));
+    }
+
+    public boolean isElementExist(String objPath) throws Exception {
+        Boolean r = true;
+        String myEle = String.valueOf(this.findElement(objPath));
+        if (myEle == null) {
+            r = false;
+        }
+        return r;
+    }
+
     public void login(String userName, String passWord) throws Exception {
         click("login_btn_");
         typeText("user_name",userName);
@@ -35,7 +51,7 @@ public class login {
         this.currentElement = driver.get().findElement(By.xpath(objPath));
         if (this.currentElement == null) {
             error("Cannot find " + objPath);
-            throw new Exception("Cannot find " + objPath);
+            throw new Exception("Cannot find ");
         } else {
             return this.currentElement;
         }
