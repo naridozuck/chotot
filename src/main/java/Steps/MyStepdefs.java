@@ -6,7 +6,7 @@ import cucumber.api.java.en.*;
 public class MyStepdefs {
 
     @Given("^User login with username \"([^\"]*)\" and password \"([^\"]*)\"$")
-    public void userLoginWithUsernameAndPassword(String username, String password) {
+    public static void userLoginWithUsernameAndPassword(String username, String password) {
         login.loginToURL(username, password);
     }
 
