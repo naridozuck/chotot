@@ -3,7 +3,7 @@ package Pages;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-
+import static java.util.logging.Logger.getLogger;
 import static sun.management.Agent.error;
 
 public class login {
@@ -27,16 +27,21 @@ public class login {
     }
 
     public void verifyElementExist(String mes, String xpath) throws Exception {
-        Assert.assertTrue(mes + " is not exist.\n Xpath: " + xpath, isElementExist(xpath));
+        Assert.assertTrue(mes + " is not exist.\n Xpath: " + xpath, isElementExist(xpath,2));
     }
 
-    public boolean isElementExist(String objPath) throws Exception {
-        Boolean r = true;
+    public boolean isElementExist(String objPath, int waitingMinutes) throws Exception {
+        int wait = waitingMinutes;
+        boolean isElementExist = false;
         String myEle = String.valueOf(this.findElement(objPath));
-        if (myEle == null) {
-            r = false;
+        while (wait > 0) {
+            getLogger("Try to wait = " + wait);
+            wait--;
+            if (myEle != null) {
+                isElementExist = true;
+            }
         }
-        return r;
+        return isElementExist;
     }
 
     public void login(String userName, String passWord) throws Exception {
