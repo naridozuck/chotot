@@ -7,10 +7,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import static sun.management.Agent.error;
 
 public class login {
-    protected static ThreadLocal<WebDriver> driver = new ThreadLocal();
+    protected ThreadLocal<WebDriver> driver = new ThreadLocal();
     protected WebElement currentElement;
 
-    public static void loginToURL(String username, String password) throws Exception {
+    public void loginToURL(String username, String password) throws Exception {
         openBrowser("${chotot.url}");
         login(username, password);
     }
@@ -22,7 +22,7 @@ public class login {
         Thread.sleep(2000);
     }
 
-    public void verifyUserLoginSuccessful() {
+    public void verifyUserLoginSuccessful() throws Exception {
         verifyElementExist("user login successful","account" );
     }
 

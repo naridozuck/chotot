@@ -11,7 +11,7 @@ public class MyStepdefs {
     }
 
     @Then("^User login successful$")
-    public void userLoginSuccessfullyAndNameDisplay()  {
+    public void userLoginSuccessfullyAndNameDisplay() throws Exception {
         login.verifyUserLoginSuccessful();
     }
 
