@@ -34,7 +34,7 @@ public class login {
         int wait = waitingMinutes;
         boolean isElementExist = false;
         String myEle = String.valueOf(this.findElement(objPath));
-        while (wait > 0) {
+        while (wait > 0 && !isElementExist) {
             getLogger("Try to wait = " + wait);
             wait--;
             if (myEle != null) {
