@@ -9,9 +9,6 @@ public class MyStepdefs {
     WebDriver driver;
     @Given("^User log in to system$")
     public void userLogInToSystem() throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver", "driver\\chromedriver.exe");
-        WebDriver driver = (WebDriver) new ChromeDriver();
-        driver.get("URL");
         driver.findElement(By.xpath("login_btn_")).click();
         driver.findElement(By.xpath("user_name")).sendKeys("u_username");
         driver.findElement(By.xpath("pwd")).sendKeys("p_password");
