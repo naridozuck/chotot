@@ -5,16 +5,18 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Hook {
-    WebDriver driver;
+    public WebDriver driver;
     @Before
     public void iniDriver() {
-        System.setProperty("webdriver.chrome.driver", "driver\\chromedriver.exe");
+        String path = System.getProperty("user.dir");
+        System.setProperty("webdriver.chrome.driver", path + "driver\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
         driver.get("URL");
     }
 
     @After
-    public void closedrive() {
+    public void closeDrive() {
         driver.quit();
     }
 }
