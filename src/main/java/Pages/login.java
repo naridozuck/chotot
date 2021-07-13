@@ -3,13 +3,16 @@ package Pages;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.util.Properties;
+
 import static java.util.logging.Logger.getLogger;
 import static sun.management.Agent.error;
 
 public class login {
     protected ThreadLocal<WebDriver> driver = new ThreadLocal();
     protected WebElement currentElement;
-
+    Properties dataProps = new Properties();
     public void loginToURL(String username, String password) throws Exception {
         openBrowser("${chotot.url}");
         login(username, password);
@@ -45,9 +48,11 @@ public class login {
     }
 
     public void login(String userName, String passWord) throws Exception {
+        String user = getDataValue(userName);
+        String pwd = getDataValue(passWord);
         click("login_btn_");
-        typeText("user_name",userName);
-        typeText("pwd",passWord);
+        typeText("user_name",user);
+        typeText("pwd",pwd);
         click("login_btn_2");
         Thread.sleep(2000);
     }
@@ -69,5 +74,8 @@ public class login {
     public void click(String objPath) throws Exception {
         this.findElement(objPath);
         this.currentElement.click();
+    }
+    public String getDataValue(String key) {
+        return this.dataProps.getProperty(key);
     }
 }
